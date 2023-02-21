@@ -1,0 +1,44 @@
+{
+	"name": "push-cli",
+	"version": "1.0.0",
+	"description": "This application will help you to do : git add . & git commit & git push with a single instruction",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write \"./**/*.{js,json}\""
+	},
+	"bin": {
+		"push-cli": "index.js",
+		"pushcli": "index.js",
+		"push": "index.js",
+		"p": "index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MoralexCode/push-cli.git"
+	},
+	"keywords": [
+		"push-cli",
+		"push",
+		"comand-line-interface",
+		"pushcli",
+		"git",
+		"MoralexCode"
+	],
+	"author": "Oscar Morales",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/MoralexCode/push-cli/issues"
+	},
+	"homepage": "https://github.com/MoralexCode/push-cli#readme",
+	"dependencies": {
+		"boxen": "^7.0.1",
+		"chalk": "^5.2.0",
+		"clear-any-console": "^1.16.2",
+		"cli-alerts": "^1.2.2",
+		"execa": "^6.1.0",
+		"meow": "^11.0.0",
+		"ora": "^6.1.2"
+	}
+}
