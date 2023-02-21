@@ -14,6 +14,7 @@ export const helperText = `
 		${cyan(`status`)}	show status equivalent to ${dim('git status')} 
 		${cyan(`s`)}	show status equivalent to ${dim('git status')} 
 		${cyan(`commit`)}	show status equivalent to ${dim('git add . & git commit')} 
+		${cyan(`push`)}	show status equivalent to ${dim('git add . & git commit')} 
 		
 	${bold(`Examples`)}
 		${green(`taskmastercli`)} ${yellow(`add myTask`)}
