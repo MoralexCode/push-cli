@@ -24,34 +24,12 @@ gitCommands.commit = async comment => {
 
 gitCommands.push = async comment => {
 	if (comment) {
-		await gitCommands.commit(comment);
-		const out = await execa('git', [`commit`, `-m`, `${comment}`]);
-		console.info(out.stdout);
+		return await gitCommands.commit(comment);
 	} else {
 		const status = await gitCommands.status();
 		const lines = status.split('\n');
 		const part = lines[0].split(' ');
 		const branch = part[2];
-		console.log('branch|', branch);
-		// const process = spawn('git', ['branch']);
-		// process.stdout.on('data', function (msg) {
-		// 	console.log('Salida==>');
-		// 	console.log(msg.toString());
-		// });
-		// process.stderr.on('data', data => {
-		// 	console.error(`stderr: ${data}`);
-		// });
-		// const branch = await execa('git', [
-		// 	`branch`,
-		// 	`|`,
-		// 	`grep`,
-		// 	`\\*`,
-		// 	`|`,
-		// 	`cut`,
-		// 	`-d`,
-		// 	`' '`,
-		// 	`-f2`
-		// ]);
 		const {stdout} = await execa('git', [`push`, `origin`, `${branch}`]);
 		return stdout;
 	}

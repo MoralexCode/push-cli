@@ -36,7 +36,7 @@ export const options = {
 		},
 		status: {
 			type: 'boolean',
-			default: true,
+			default: false,
 			alias: 's'
 		}
 	}
