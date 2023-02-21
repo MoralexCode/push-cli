@@ -1,11 +1,10 @@
-import path from 'path';
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
 export const gitCommands = {};
 
-gitCommands.status = async () => {
-	await execa('cd', [`${__dirname}`]);
+gitCommands.status = async path => {
+	// await execa('cd', [`${path}`]);
 	const out = await execa('git', [`status`]);
-	console.info(`current directory ${__dirname}`);
+	console.info(`current directory ${path}`);
+	console.info(`current directory ${process.cwd()}`);
 	console.info(out.stdout);
 };
 

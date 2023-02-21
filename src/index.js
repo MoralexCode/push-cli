@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
 import meow from 'meow';
-import path from 'path';
-import {debug} from './utils/debug.js';
 import './utils/global.js';
+// import path from 'path';
+import {gitCommands} from './utils/commands.js';
+import {debug} from './utils/debug.js';
 import {helperText, options} from './utils/helper.js';
 import {welcome} from './utils/welcome.js';
-import {gitCommands} from './utils/commands.js';
 welcome();
 const cli = meow(helperText, options);
 const input = cli.input;
 const flags = cli.flags;
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-
+const currerdir = path.dirname(new URL(import.meta.url).pathname);
 (async () => {
 	input.includes('help') && cli.showHelp(0);
 	const {status, commit, push} = flags;
@@ -28,7 +28,6 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 		console.log(input);
 		const [, comments] = input;
 		console.log(' ❯ comments:', comments);
-
 		const spinner = ora(`Doing commit`).start();
 		gitCommands.commit(comments);
 		spinner.succeed(`Commit it´s Done!`);
