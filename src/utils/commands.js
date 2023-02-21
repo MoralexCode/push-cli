@@ -1,7 +1,7 @@
 export const gitCommands = {};
 
 gitCommands.status = async path => {
-	// await execa('cd', [`${path}`]);
+	await execa('cd', [`${process.cwd()}`]);
 	const out = await execa('git', [`status`]);
 	console.info(`current directory ${path}`);
 	console.info(`current directory ${process.cwd()}`);
