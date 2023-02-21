@@ -23,13 +23,15 @@ gitCommands.commit = async comment => {
 };
 
 gitCommands.push = async comment => {
+	const status = await gitCommands.status();
+	const lines = status.split('\n');
+	const part = lines[0].split(' ');
+	const branch = part[2];
 	if (comment) {
-		return await gitCommands.commit(comment);
+		await gitCommands.commit(comment);
+		const {stdout} = await execa('git', [`push`, `origin`, `${branch}`]);
+		return stdout;
 	} else {
-		const status = await gitCommands.status();
-		const lines = status.split('\n');
-		const part = lines[0].split(' ');
-		const branch = part[2];
 		const {stdout} = await execa('git', [`push`, `origin`, `${branch}`]);
 		return stdout;
 	}
