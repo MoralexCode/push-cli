@@ -1,4 +1,3 @@
-// require('dotenv').config();
 import {config} from 'dotenv';
 config();
 const {firm} = process.env;

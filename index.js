@@ -1,10 +1,8 @@
 #!/usr/bin/env node
-
 import meow from 'meow';
-import './utils/global.js';
-// import path from 'path';
 import {gitCommands} from './utils/commands.js';
 import {debug} from './utils/debug.js';
+import './utils/global.js';
 import {helperText, options} from './utils/helper.js';
 import {welcome} from './utils/welcome.js';
 welcome();
@@ -12,7 +10,6 @@ const cli = meow(helperText, options);
 const input = cli.input;
 const flags = cli.flags;
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const currerdir = path.dirname(new URL(import.meta.url).pathname);
 (async () => {
 	input.includes('help') && cli.showHelp(0);
 	const {status, commit, push, all} = flags;
@@ -38,21 +35,13 @@ const currerdir = path.dirname(new URL(import.meta.url).pathname);
 		console.log(' ❯ comments:', comments);
 		const spinner = ora(`Doing Push`).start();
 		let out = 'Done';
+		// TODO: check when there are issues to doing push
 		// if (comments) {
 		// } else {
 		// }
 		comments ? gitCommands.push(comments) : gitCommands.push();
 		spinner.succeed(`Push it´s ${out}!`);
 	}
-	// if (input.includes('all') || all) {
-	// 	console.log(input);
-	// 	const [, comments] = input;
-	// 	console.log(' ❯ comments:', comments);
-	// 	const spinner = ora(`Doing commit`).start();
-	// 	gitCommands.commit(comments);
-	// 	spinner.succeed(`Commit it´s Done!`);
-	// }
-
 	//Debug info if nedeed.
 	debug(flags.debug, input, flags);
 })();
