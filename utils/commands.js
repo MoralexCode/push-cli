@@ -1,9 +1,13 @@
+// require('dotenv').config();
+import {config} from 'dotenv';
+config();
+const {firm} = process.env;
 export const gitCommands = {};
-
 gitCommands.status = async path => {
 	await execa('cd', [`${process.cwd()}`]);
 	const {stdout} = await execa('git', [`status`]);
 	console.info(`current directory ${process.cwd()}`);
+
 	return stdout;
 };
 
@@ -11,7 +15,11 @@ gitCommands.commit = async comment => {
 	if (comment) {
 		await gitCommands.status();
 		await execa('git', [`add`, `.`]);
-		const {stdout} = await execa('git', [`commit`, `-m`, `${comment}`]);
+		const {stdout} = await execa('git', [
+			`commit`,
+			`-m`,
+			`${comment} ${firm || '❯ MoralexCode'}`
+		]);
 		return stdout;
 	} else {
 		alert({
@@ -23,20 +31,14 @@ gitCommands.commit = async comment => {
 };
 
 gitCommands.push = async comment => {
-	const status = await gitCommands.status();
-	const lines = status.split('\n');
-	const part = lines[0].split(' ');
-	const branch = part[2];
+	const branch = await getCurrentBranch();
 	if (comment) {
 		await gitCommands.commit(comment);
-		const {stdout} = await execa('git', [`push`, `origin`, `${branch}`]);
-		return stdout;
+		return push(branch);
 	} else {
-		const {stdout} = await execa('git', [`push`, `origin`, `${branch}`]);
-		return stdout;
+		return push(branch);
 	}
 };
-
 gitCommands.all = async comment => {
 	if (comment) {
 		await gitCommands.commit(comment);
@@ -50,3 +52,14 @@ gitCommands.all = async comment => {
 		});
 	}
 };
+
+async function push(branch) {
+	const {stdout} = await execa('git', [`push`, `origin`, `${branch}`]);
+	return stdout;
+}
+async function getCurrentBranch() {
+	const status = await gitCommands.status();
+	const lines = status.split('\n');
+	const part = lines[0].split(' ');
+	return part[2];
+}
