@@ -34,17 +34,8 @@ gitCommands.push = async comment => {
 	}
 };
 gitCommands.undo = async comment => {
-	if (comment) {
-		await gitCommands.commit(comment);
-		const out = await execa('git', [`reset`, `--soft`, `HEAD~1`]);
-		console.info(out.stdout);
-	} else {
-		alert({
-			type: 'warning',
-			name: `Warning`,
-			msg: `\n We need commit params ${dim(`git commit -m $comments`)}.`
-		});
-	}
+	await execa('git', [`reset`, `--soft`, `HEAD~1`]);
+	// TODO: show the las commit hash
 };
 
 async function push(branch) {
