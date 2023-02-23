@@ -1,6 +1,6 @@
 ![genesiscli-screenshot](.github/git-push-cli.png)
 
-# Task Master CLI (⚙️ Building)
+# Git Push CLI
 
 This app going to help to take control to your activities following GTD method
 
@@ -41,6 +41,7 @@ p status
 p -s
 ```
 
+![genesiscli-screenshot](.github/git-push.gif)
 run this comand to add new Task with details:
 
 ```sh
