@@ -5,8 +5,7 @@ export const gitCommands = {};
 gitCommands.status = async path => {
 	await execa('cd', [`${process.cwd()}`]);
 	const {stdout} = await execa('git', [`status`]);
-	console.info(`current directory ${process.cwd()}`);
-
+	// console.info(`current directory ${process.cwd()}`);
 	return stdout;
 };
 
@@ -14,11 +13,7 @@ gitCommands.commit = async comment => {
 	if (comment) {
 		await gitCommands.status();
 		await execa('git', [`add`, `.`]);
-		const {stdout} = await execa('git', [
-			`commit`,
-			`-m`,
-			`${comment} ${firm || '❯ MoralexCode'}`
-		]);
+		const {stdout} = await execa('git', [`commit`, `-m`, `${comment} ${firm || '❯ '}`]);
 		return stdout;
 	} else {
 		alert({

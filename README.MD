@@ -32,6 +32,13 @@ npm link # some times need execute like sudo user
 <br>
 
 ![genesiscli-screenshot](.github/pc.png)
+
+##### create new `.env` file with your personal firm:
+
+```sh
+firm="❯ ❯ by MoraλexCodξ 😎 ❮ ❮"
+```
+
 run this comand to add new Task:
 
 ```sh
@@ -42,20 +49,28 @@ p -s
 ```
 
 ![genesiscli-screenshot](.github/git-push.gif)
-run this comand to add new Task with details:
+
+**Run this command to commit :**
 
 ```sh
-# answer the questions
-p p 'Initial commit  by  ❯ ❯ MoralexCode 😎 ❮ ❮'
+# To commit
+p -m 'Initial commit  by  ❯ ❯ MoralexCode 😎 ❮ ❮'
+```
+
+**Run this command to push to remote repository :**
+
+```sh
+# Doing push to remote repository
+p -p 'Initial commit  by  ❯ ❯ MoralexCode 😎 ❮ ❮'
+# if you have your change commited, just send like this
+p -p
 ```
 
 run this comand to get command helps:
 
 ```sh
-# answer the questions
+# show all commands & flags
 p help
-# or
-p h
 ```
 
 # License

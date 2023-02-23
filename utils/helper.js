@@ -6,19 +6,19 @@ export const helperText = `
         
 		${yellow(`--debug   Show debug information `)}
 		${yellow(`-s , --status`)} show status equivalent to ${dim('git status')} 
+		${yellow(`-p, --push`)}	Doing Pus to remote repository equivalent to:
+			 	${dim('git add . && git commit -m $comments && git push origin $BRACH_NAME')} 
 		
 	${bold(`Commands`)}
 		${cyan(`help`)}   			Print CLI help information
-		${cyan(`add  <text>`)}   		add new task
-		
 		${cyan(`status`)}	show status equivalent to ${dim('git status')} 
-		${cyan(`s`)}	show status equivalent to ${dim('git status')} 
 		${cyan(`commit`)}	show status equivalent to ${dim('git add . & git commit')} 
-		${cyan(`push`)}	show status equivalent to ${dim('git add . & git commit')} 
+		${cyan(`push`)}	Doing Pus to remote repository equivalent to:
+				${dim('git add . && git commit -m $comments && git push origin $BRACH_NAME')} 
 		
 	${bold(`Examples`)}
-		${green(`taskmastercli`)} ${yellow(`add myTask`)}
-		${green(`t`)} ${yellow(`aad  myTask`)}`;
+		${green(`p`)} ${yellow(`-s`)}
+		${green(`p`)} ${yellow(`-p 'Initial commit  by  ❯ ❯ MoralexCode 😎 ❮ ❮'`)}`;
 
 export const options = {
 	importMeta: import.meta,
@@ -38,6 +38,16 @@ export const options = {
 			type: 'boolean',
 			default: false,
 			alias: 's'
+		},
+		commit: {
+			type: 'boolean',
+			default: false,
+			alias: 'm'
+		},
+		push: {
+			type: 'boolean',
+			default: false,
+			alias: 'p'
 		}
 	}
 };

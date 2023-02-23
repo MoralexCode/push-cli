@@ -12,11 +12,10 @@ const flags = cli.flags;
 const __dirname = path.dirname(new URL(import.meta.url).pathname);
 (async () => {
 	input.includes('help') && cli.showHelp(0);
-	const {status, commit, push, all} = flags;
+	const {status, commit, push} = flags;
 	// console.log('flags|', flags);
 	// console.log('status|', status);
 	if (input.includes('status') || status) {
-		// const [, title] = input;
 		const spinner = ora('get status...\n').start();
 		console.info(await gitCommands.status());
 		spinner.succeed(`Status It's done!`);
@@ -32,13 +31,9 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 	if (input.includes('push') || push) {
 		console.log(input);
 		const [, comments] = input;
-		console.log(' ❯ comments:', comments);
 		const spinner = ora(`Doing Push`).start();
 		let out = 'Done';
 		// TODO: check when there are issues to doing push
-		// if (comments) {
-		// } else {
-		// }
 		comments ? gitCommands.push(comments) : gitCommands.push();
 		spinner.succeed(`Push it´s ${out}!`);
 	}
