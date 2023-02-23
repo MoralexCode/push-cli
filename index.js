@@ -13,7 +13,7 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 (async () => {
 	input.includes('help') && cli.showHelp(0);
 	const {status, commit, push} = flags;
-	// console.log('flags|', flags);
+	console.log('flags|', flags);
 	// console.log('status|', status);
 	if (input.includes('status') || status) {
 		const spinner = ora('get status...\n').start();
@@ -36,6 +36,11 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 		// TODO: check when there are issues to doing push
 		comments ? gitCommands.push(comments) : gitCommands.push();
 		spinner.succeed(`Push it´s ${out}!`);
+	}
+	if (input.includes('undo') || commit) {
+		const spinner = ora(`Undo commit`).start();
+		console.info(await gitCommands.undo());
+		spinner.succeed(`Undo it´s Done!`);
 	}
 	//Debug info if nedeed.
 	debug(flags.debug, input, flags);

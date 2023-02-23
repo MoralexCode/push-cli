@@ -33,10 +33,10 @@ gitCommands.push = async comment => {
 		return push(branch);
 	}
 };
-gitCommands.all = async comment => {
+gitCommands.undo = async comment => {
 	if (comment) {
 		await gitCommands.commit(comment);
-		const out = await execa('git', [`commit`, `-m`, `${comment}`]);
+		const out = await execa('git', [`reset`, `--soft`, `HEAD~1`]);
 		console.info(out.stdout);
 	} else {
 		alert({

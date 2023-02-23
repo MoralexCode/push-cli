@@ -54,16 +54,16 @@ p -s
 
 ```sh
 # To commit
-p -m 'Initial commit  by  ❯ ❯ MoralexCode 😎 ❮ ❮'
+p commit 'Initial commit  by  ❯ ❯ MoralexCode 😎 ❮ ❮'
 ```
 
 **Run this command to push to remote repository :**
 
 ```sh
 # Doing push to remote repository
-p -p 'Initial commit  by  ❯ ❯ MoralexCode 😎 ❮ ❮'
+p push 'Initial commit  by  ❯ ❯ MoralexCode 😎 ❮ ❮'
 # if you have your change commited, just send like this
-p -p
+p push
 ```
 
 run this comand to get command helps:

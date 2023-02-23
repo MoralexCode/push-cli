@@ -15,6 +15,8 @@ export const helperText = `
 		${cyan(`commit`)}	show status equivalent to ${dim('git add . & git commit')} 
 		${cyan(`push`)}	Doing Pus to remote repository equivalent to:
 				${dim('git add . && git commit -m $comments && git push origin $BRACH_NAME')} 
+		${cyan(`undo`)}	Undo commit Pus to remote repository equivalent to:
+				${dim('git reset --soft HEAD~1')} 
 		
 	${bold(`Examples`)}
 		${green(`p`)} ${yellow(`-s`)}
@@ -42,7 +44,7 @@ export const options = {
 		commit: {
 			type: 'boolean',
 			default: false,
-			alias: 'm'
+			alias: 'c'
 		},
 		push: {
 			type: 'boolean',
