@@ -33,12 +33,6 @@ npm link # some times need execute like sudo user
 
 ![genesiscli-screenshot](.github/pc.png)
 
-##### create new `.env` file with your personal firm:
-
-```sh
-firm="❯ ❯ by MoraλexCodξ 😎 ❮ ❮"
-```
-
 run this comand to add new Task:
 
 ```sh
