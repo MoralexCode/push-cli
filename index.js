@@ -13,8 +13,8 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 (async () => {
 	input.includes('help') && cli.showHelp(0);
 	const {status, commit, push, all} = flags;
-	console.log('flags|', flags);
-	console.log('status|', status);
+	// console.log('flags|', flags);
+	// console.log('status|', status);
 	if (input.includes('status') || status) {
 		// const [, title] = input;
 		const spinner = ora('get status...\n').start();

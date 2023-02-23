@@ -1,4 +1,4 @@
-![genesiscli-screenshot](.github/git-push-running.png)
+![genesiscli-screenshot](.github/git-push-cli.png)
 
 # Task Master CLI (⚙️ Building)
 
@@ -6,7 +6,7 @@ This app going to help to take control to your activities following GTD method
 
 To create a NodeJS project, you can follow these steps:
 
-![genesiscli-screenshot](.github/git-push-cli.png)
+![genesiscli-screenshot](.github/git-push-running.png)
 
 # Feature
 
@@ -23,7 +23,7 @@ To create a NodeJS project, you can follow these steps:
 
 ```sh
 
-npm install push-cli -g
+npm i @oscarmoralex/push-cli -g
 
 npm link # some times need execute like sudo user
 
@@ -38,7 +38,7 @@ run this comand to add new Task:
 # answer the questions
 p status
 #or
-p s
+p -s
 ```
 
 run this comand to add new Task with details:
