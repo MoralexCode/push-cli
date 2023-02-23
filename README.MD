@@ -67,6 +67,8 @@ run this comand to get command helps:
 p help
 ```
 
+![genesiscli-screenshot](.github/p-push-cli.gif)
+
 # License
 
 MIT
