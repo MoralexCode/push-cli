@@ -5,6 +5,8 @@ import {debug} from './utils/debug.js';
 import './utils/global.js';
 import {helperText, options} from './utils/helper.js';
 import {welcome} from './utils/welcome.js';
+import {colorText} from './utils/colorText.js';
+
 welcome();
 const cli = meow(helperText, options);
 const input = cli.input;
@@ -17,7 +19,7 @@ const __dirname = path.dirname(new URL(import.meta.url).pathname);
 	// console.log('status|', status);
 	if (input.includes('status') || status) {
 		const spinner = ora('get status...\n').start();
-		console.info(await gitCommands.status());
+		colorText(await gitCommands.status());
 		spinner.succeed(`Status It's done!`);
 	}
 	if (input.includes('commit') || commit) {
