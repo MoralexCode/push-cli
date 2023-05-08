@@ -10,6 +10,8 @@ function getModified(text) {
 	const lines = text.split('\n');
 	let result = lines.map(line => {
 		if (line.includes('modified')) return red(line);
+		if (line.includes('deleted')) return red(line);
+		if (line.includes('Untracked files')) return yellow(line);
 		return line;
 	});
 	// console.log(line);

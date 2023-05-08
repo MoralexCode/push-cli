@@ -1,6 +1,6 @@
 {
 	"name": "@oscarmoralex/push-cli",
-	"version": "1.0.2",
+	"version": "1.0.4",
 	"description": "This application will help you to do : git add . & git commit & git push with a single instruction",
 	"main": "index.js",
 	"type": "module",
